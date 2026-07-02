@@ -1,0 +1,9 @@
+.pio/
+.vscode/
+.dep/
+*.o
+*.hex
+*.bin
+*.elf
+*.map
+.DS_Store
