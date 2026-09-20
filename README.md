@@ -1,3 +1,35 @@
+# CR-10 / Prusa Mix Printer
+
+Custom Marlin firmware config for a hybrid build: a Creality CR-10 frame carrying a Prusa-style (MK3) extruder and dual-Z setup. This repo tracks the machine-specific configuration on top of stock Marlin — not a general-purpose Marlin fork.
+
+## Hardware
+
+- **Frame:** Creality CR-10, dual Z lead screws (Z2 stepper, `Z_STEPPER_AUTO_ALIGN` for bed tramming via BLTouch)
+- **Extruder:** Prusa MK3-style tool head
+- **Board:** FYSETC Spider V2.2
+- **Drivers:** TMC2209 on X/Y/Z/Z2/E0 (UART, current in software)
+- **Probe:** BLTouch, used for both mesh leveling and Z homing (`USE_PROBE_FOR_Z_HOMING`)
+- **Display:** MKS LCD12864B graphic controller
+- **Bed:** 310 × 310 mm, bilinear leveling with a 5×5 grid
+- **Hotend fan:** FAN1, wired to always-on via extruder auto-fan (`E0_AUTO_FAN_PIN`/`EXTRUDER_AUTO_FAN_TEMPERATURE 0`)
+
+## Pictures
+
+<p align="center"><img src="docs/images/printer/overview.png" width="500" alt="Printer overview" /></p>
+
+CAD overview of the frame/extruder/gantry assembly, plus build details:
+
+| | |
+|---|---|
+| <img src="docs/images/printer/z-axis-coupler.png" width="260" alt="Z-axis coupler detail"> Z-axis lead screw coupler | <img src="docs/images/printer/top-corner-bracket.png" width="260" alt="Top corner bracket"> Top frame corner bracket |
+| <img src="docs/images/printer/extruder-mount-detail.png" width="260" alt="Extruder mount detail"> Extruder mount detail | |
+
+## Firmware base
+
+Based on Marlin 2.0.9.7. See commit history for the specific config changes made for this machine (motherboard, drivers, bed size, probe, display, fan control, etc).
+
+---
+
 <p align="center"><img src="buildroot/share/pixmaps/logo/marlin-outrun-nf-500.png" height="250" alt="MarlinFirmware's logo" /></p>
 
 <h1 align="center">Marlin 3D Printer Firmware</h1>
